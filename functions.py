@@ -52,9 +52,3 @@ def removerCliente(value):
         else:
             print('\033[31mProduto não encontrado!\033[m')
 
-
-#Registro de pedidos
-
-if __name__ == "__main__":
-    cadastrarCliente("Arthur")
-    print("Lista de clientes:", client)
