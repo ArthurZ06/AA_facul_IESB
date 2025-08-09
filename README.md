@@ -1,71 +1,80 @@
 # ☕ Coffee Shops Tia Rosa - Sistema de Gerenciamento
 
-**Atividade ativa do professor Francisco Lima (IESB)**  
-Sistema simples em Python para reforçar os conhecimentos práticos da disciplina.
+**Atividade do professor Francisco Lima (IESB)**  
+Sistema simples em Python para reforçar conceitos práticos de programação.
 
 ---
 
 ## 📋 Descrição do Sistema
 
-O sistema tem como objetivo melhorar a gestão da cafeteria fictícia **Coffee Shops Tia Rosa**, que sofre com falta de controle digital. Ele permite o cadastro de produtos e clientes, além do registro de pedidos com preços e exibição do total.
+O sistema **Coffee Shops Tia Rosa** é uma aplicação de linha de comando que auxilia no controle da cafeteria fictícia. Ele facilita o cadastro de produtos e clientes, o registro e gerenciamento de pedidos, proporcionando um controle digital básico para o negócio.
 
 ---
 
 ## ⚙️ Funcionalidades
 
 ### 1. Cadastro de Produtos
-- Listar produtos
-- Adicionar novos produtos
-- Remover produtos por nome ou índice
+- Listar produtos cadastrados  
+- Adicionar novos produtos  
+- Remover produtos por nome ou índice  
 
 ### 2. Cadastro de Clientes
-- Listar clientes
-- Adicionar novos clientes
-- Remover clientes por nome ou índice
+- Listar clientes cadastrados  
+- Adicionar novos clientes  
+- Remover clientes por nome ou índice  
 
-### 3. Registro de Pedidos
-- Selecionar cliente
-- Escolher produtos com preço
-- Exibir resumo e valor total do pedido
-- Salvar o pedido na memória
+### 3. Registro e Gerenciamento de Pedidos
+- Selecionar cliente para o pedido  
+- Adicionar múltiplos produtos com preços ao pedido  
+- Visualizar resumo detalhado do pedido, incluindo total
 
----
+### 4. Mostrar Pedidos
+- Exibir todos os pedidos realizados com detalhes (cliente, itens, total)
 
-## 🧠 Explicação do Código (Passo a Passo)
+### 5. Remover Pedido
+- Remover pedido pelo índice na lista de pedidos
 
-### `main.py`
-- Apresenta o menu principal em loop.
-- Direciona para cadastro de produtos, clientes ou pedidos.
-- Utiliza validações simples para entrada do usuário.
-
-### `functions.py`
-- Define funções auxiliares para:
-  - Adicionar e remover **produtos**
-  - Adicionar e remover **clientes**
-- Permite remover tanto por **nome** quanto por **índice** da lista.
-
-### `database.py`
-- Simula um banco de dados com 3 listas globais:
-  - `product[]`: lista de produtos
-  - `client[]`: lista de clientes
-  - `request[]`: lista de pedidos feitos
-
-### `classes.py`
-- Define a classe `Pedido`:
-  - Atribui automaticamente um `ID`
-  - Armazena o nome do cliente
-  - Adiciona itens ao pedido com nome e preço
-  - Calcula o total automaticamente
-  - Exibe todos os dados formatados
+### 6. Encerrar o Programa
+- Opção para sair do sistema com mensagem de agradecimento
 
 ---
 
-## 🖼️ Prints Simulados
+## 📂 Organização dos Arquivos
 
-```bash
-COFFEE SHOPS TIA ROSA
+- `main.py`  
+  Arquivo principal que apresenta o menu e gerencia o fluxo da aplicação.
 
-1 - Cadastro de produtos
-2 - Cadastro de clientes
-3 - Registro de pedidos
-999 - Encerra o programa
+- `functions.py`  
+  Contém funções auxiliares para manipulação de produtos e clientes (adicionar e remover).
+
+- `database.py`  
+  Simula o banco de dados com listas globais:  
+  - `product[]`: produtos cadastrados  
+  - `client[]`: clientes cadastrados  
+  - `request[]`: pedidos realizados
+
+- `classes.py`  
+  Define a classe `Pedido` que representa os pedidos realizados, com funcionalidades para adicionar itens, calcular o total e exibir detalhes formatados.
+
+---
+
+## 💡 Como Utilizar
+
+1. Execute o programa: `python main.py`  
+2. No menu principal, escolha entre:  
+   - **1** - Cadastro de produtos  
+   - **2** - Cadastro de clientes  
+   - **3** - Registrar pedido  
+   - **4** - Mostrar pedidos  
+   - **5** - Remover pedido  
+   - **999** - Encerra o programa  
+3. Siga as instruções para adicionar, listar ou remover itens conforme necessário.  
+4. No registro de pedidos, selecione o cliente e depois adicione produtos com seus preços, finalizando com `-1`.
+
+---
+
+## 📌 Considerações Finais
+
+- O sistema funciona inteiramente na linha de comando, ideal para aprendizado e reforço dos conceitos básicos de Python.  
+- As listas em `database.py` funcionam como banco de dados em memória, não persistindo dados entre execuções.  
+- A aplicação utiliza tratamento de exceções para evitar entradas inválidas e manter a experiência amigável.
