@@ -1,0 +1,12 @@
+# Ignorar pastas de configuração do editor
+.idea/
+.vscode/
+__pycache__
+test.py
+# Ignorar arquivos de ambiente com senhas
+.env
+
+# Ignorar arquivos temporários e logs
+*.log
+*.tmp
+
