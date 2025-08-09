@@ -1,5 +1,5 @@
 #importa product e client que esta em database.py
-from database import product, client
+from services.database import product, client
 
 
 #Produtos

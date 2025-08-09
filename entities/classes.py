@@ -1,3 +1,4 @@
+# fazendo classe pedido
 class Pedido:
     contador_id = 1  # classe variável para gerar ID automático
 

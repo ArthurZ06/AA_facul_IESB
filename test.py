@@ -1,9 +1,9 @@
 # imports funções que eu criei database e sleep
-import functions
-from database import product, client, request
+from services import functions
+from services.database import product, client, request
 
 from time import sleep
-from classes import Pedido  # Certifique-se de que a classe está criada
+from entities.classes import Pedido
 
 # criando um laço infinito
 while True:
@@ -11,8 +11,10 @@ while True:
     print('''
 \033[36m1 - Cadastro de produtos
 2 - Cadastro de clientes
-3 - Registro de pedidos\033[m
-\033[31m999 - Encerra o programa\033[m
+3 - Registrar pedido
+4 - Mostrar pedidos\033[m
+\033[31m5 - Remover pedido
+999 - Encerra o programa\033[m
 ''')
 
     try:
@@ -105,7 +107,7 @@ Digite aqui: '''))
                 print(f'Clientes atuais: {client}')
                 sleep(2)
 
-            elif choice == 3:
+            elif choice == 3:   
                 print(f'Clientes atuais: {client}')
                 remove_client = input('Nome do cliente ou índice para remover: ')
                 functions.removerCliente(remove_client)
@@ -147,7 +149,7 @@ Digite aqui: '''))
                 print(f"{i} - {p}")
 
             try:
-                prod_index = int(input("Escolha o produto pelo número (ou -1 para finalizar): "))
+                prod_index = int(input("Escolha o produto pelo número (ou escreva -1 para finalizar): "))
                 if prod_index == -1:
                     break
                 produto_nome = product[prod_index]
@@ -162,4 +164,37 @@ Digite aqui: '''))
         request.append(pedido)
         print("\033[32mPedido registrado com sucesso!\033[m")
         sleep(2)
+    elif option == 4:
+        if not request:
+            print("\033[31mNenhum pedido registrado.\033[m")
+        else:
+            print("\n\033[36mPedidos registrados:\033[m")
+            for i, pedido in enumerate(request, start=1):
+                print(f"\n--- Pedido {i} ---")
+                pedido.exibir_pedido()
+        sleep(2)
+
+    elif option == 5:
+            if not request:
+                print("\033[31mNenhum pedido registrado para remover.\033[m")
+                sleep(2)
+                continue
+
+            print("\n\033[36mPedidos registrados:\033[m")
+            for i, pedido in enumerate(request):
+                print(f"{i} - Cliente: {pedido.cliente}, Total: R$ {pedido.total:.2f}")
+
+            try:
+                index_remover = int(input("\nDigite o número do pedido que deseja remover: "))
+                if 0 <= index_remover < len(request):
+                    removido = request.pop(index_remover)
+                    print(f"\033[32mPedido do cliente '{removido.cliente}' removido com sucesso!\033[m")
+                else:
+                    print("\033[31mÍndice inválido.\033[m")
+            except ValueError:
+                print("\033[31mEntrada inválida.\033[m")
+
+            sleep(2)
+
+
 
